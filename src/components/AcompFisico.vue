@@ -47,7 +47,7 @@
 
 </template>
 <script>
-import cHeader from 'components/Header.vue'
+//import cHeader from 'components/Header.vue'
 import API from 'data/config.js'
 import axios from 'axios'
 import { Loading } from 'quasar'
