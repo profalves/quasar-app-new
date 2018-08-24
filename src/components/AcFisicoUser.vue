@@ -28,11 +28,11 @@
       
       
       <input placeholder="Peso ..."
+             type="number"
              class="bookInput" 
              style="margin: 2% 5%"
-      />  
-      
-      
+      />
+
       <div class="row">
         <div class="col text-left">
           <button class="backButton" 
