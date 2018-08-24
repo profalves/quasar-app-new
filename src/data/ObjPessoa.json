@@ -1,0 +1,167 @@
+{ //pessoaFisica
+  cpf: {
+    idPessoaEmissor: 1,
+    idPessoa: 13,
+    numero: '61970793058',
+    idUsuario: 1
+  },
+  RG: { //OK!
+    idPessoaEmissor: 1,
+    numero: '2912514',
+    idPessoa: 13,
+    UF: 'PB',
+    idUsuario: 1
+  },
+  tituloEleitor: {
+    idPessoa: 13,
+    idPessoaEmissor: 1,
+    numero: '548327659708',
+    secao: 1,
+    UF: 'BA',
+    zona: 10,
+    idUsuario: 1
+  },
+  pessoa:{
+    idPessoa: 13,
+    dhCriacao: new Date().toISOString(), // o backend deve definir isso
+    idEstacao: 1,
+    idStatusReg: 1,
+    idUsuario: 1,
+    registroAtivo: true, // enviar sempre 'true' ao editar
+    CRT: 0,
+    genero: 'M',
+    nome: 'Fulano de Tal Beltrano'
+  },
+  senha: '1234', // - não tem em tela
+  sigla: 'ABC', // - não tem em tela
+  nomeSecundario: 'Fulaninho', //- não tem em tela
+  dataInicio: new Date().toISOString(),
+  // tipoPessoa: 3,
+  telefones: [ //Array
+    {
+      numero: 75999999999, //10 digitos no mínimo
+      dhCriacao: new Date().toISOString(),
+      idEstacao: 1,
+      idStatusReg: 1,
+      idUsuario: 1,
+      RecuperacaoSenha: false,
+      IdTelefoneOperadora: 1,
+      IdTelefoneTipo: 1 
+    }
+  ],
+  endVirtuais: [
+    {
+      idEnderecoTipo: 1,
+      idPessoa: 13,
+      nome: 'email@m.com',
+      idUsuario: 1,
+      idEstacao: 1
+    }
+  ],
+  endFisicos: [
+    {
+      idPessoa: 13,
+      endereco: {
+        bairro: 'CENTRO',
+        cep: '48700000',
+        idCidade: 1,
+        nome: 'R. ALVARO AUGUSTO'
+      },
+      idEnderecoTipo: 1,
+      idPessoaEnd: 1,
+      numero: 259,
+      pontoRef: '',
+      idEndereco: 1, //enviar sempre 1 por enquanto
+      idEstacao: 1,
+      idStatusReg: 1,
+      idUsuario: 1,
+    }
+  ],
+  /*
+  relacao: [ //ignorar
+    {
+      data: '',
+      idPessoaFilho: '',
+      idPessoaPai: '',
+      idPessoaRelacao: '',
+      idTipoRelacao: '',
+      pessoaFilho: '',
+      pessoaPai: '',
+      tipoRelacao: ''
+      idEstacao: 1,
+      idStatusReg: 1,
+      idUsuario: 1,
+    }
+  ]*/
+}
+{ //pessoaJuridica
+  pessoa:{
+    idPessoa: 1,
+    dhCriacao: new Date().toISOString(), // o backend deve definir isso
+    idEstacao: 1,
+    idStatusReg: 1,
+    idUsuario: 1,
+    registroAtivo: true, // enviar sempre 'true' ao editar
+    CRT: 1,
+    genero: 'M',
+    nome: 'Book360'
+  },
+  cnpj:{
+    idPessoaEmissor: 1,
+    idPessoa: 1,
+    numero: '06506715000105',
+    idUsuario: 1
+  },
+  IE: {
+    idPessoaEmissor: 1,
+    numero: '291251402',
+    idPessoa: 1,
+    UF: 'PB',
+    idUsuario: 1
+  },
+  senha: '1234', // - não tem em tela
+  sigla: 'ABC', // - não tem em tela
+  nomeSecundario: 'Fulaninho', //- não tem em tela
+  dataInicio: new Date().toISOString(),
+  // tipoPessoa: 3,
+  telefones: [ //Array
+    {
+      numero: 75999999999, //10 digitos no mínimo
+      dhCriacao: new Date().toISOString(),
+      idEstacao: 1,
+      idStatusReg: 1,
+      idUsuario: 1,
+      RecuperacaoSenha: false,
+      IdTelefoneOperadora: 1,
+      IdTelefoneTipo: 1 
+    }
+  ],
+  endVirtuais: [
+    {
+      idEnderecoTipo: 1,
+      idPessoa: 1,
+      nome: 'email@m.com',
+      idUsuario: 1,
+      idEstacao: 1
+    }
+  ],
+  endFisicos: [
+    {
+      idPessoa: 1,
+      endereco: {
+        bairro: 'CENTRO',
+        cep: '48700000',
+        idCidade: 1,
+        nome: 'R. ALVARO AUGUSTO'
+      },
+      idEnderecoTipo: 1,
+      idPessoaEnd: 1,
+      numero: 259,
+      pontoRef: '',
+      idEndereco: 1, //enviar sempre 1 por enquanto
+      idEstacao: 1,
+      idStatusReg: 1,
+      idUsuario: 1,
+    }
+  ]
+}
