@@ -4,23 +4,23 @@
   <div style="margin: 20px"></div>  
 
   <q-list no-border multiline class="no-padding">
-    
-    <!--<q-item class="titleBook">
-      <q-item-side><img src="~/icones/2203-2119.png" /></q-item-side>
-      <q-item-main>cadastro</q-item-main>
-    </q-item>-->
-    
-    <q-item class="titleBook" id="titleCad">
-      <q-item-main>Cadastro Empresa</q-item-main>
-    </q-item>
 
     <q-item class="titleBook">
       <q-item-main>
         <div class="name">{{empresa.nome}}</div>
       </q-item-main>
     </q-item>
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0">
+      <q-btn flat icon="fa-pencil-square-o" 
+             class="btnEdit" 
+             @click="$router.push('cadEmpresa')"
+             /><span>editar</span>
+    </div>
+    <br>
 
-    <q-item>
+    <!--<q-item>
       <q-item-side>
         <q-btn small rounded
                id="btnSmall"
@@ -28,7 +28,7 @@
                @click="$router.push('cadEmpresa')"
                >Editar</q-btn>
       </q-item-side>
-    </q-item>
+    </q-item>-->
     
     <!--<q-item class="verdeBook">
       <q-item-side>
@@ -335,6 +335,15 @@ export default {
   }
   .name{
     font-size: 30px;
+  }
+  .btnEdit{
+    color: #57A695;
+    margin: 0 -10px 0 0;
+  }
+  span{
+    font-size: 19px;
+    margin-left: -15px;
+    color: #57A695;
   }
   
 </style>

@@ -157,7 +157,7 @@ select.bookSelect-afterOpen {
 .input-file {
   opacity: 0; /* invisible but it's there! */
   width: 65px;
-  height: 15px;
+  height: 65px;
   cursor: pointer;
 }
 

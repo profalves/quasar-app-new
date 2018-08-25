@@ -57,24 +57,26 @@
         
       </div>
       
-      <div class="row">
-        <div class="col-xs-6">
-          <input class="bookInput"
-                 style="margin: 2% 5%"
-                 type="date"
-          />
-        </div>
-        <div class="col-xs-6">
-          <input class="bookInput"
-                 style="margin: 2% 5%"
-                 type="date"
-          />
-        </div>
+      <div v-for="(inputs, index) in inputslist" :key="index">
+        <div class="row">
+          <div class="col-xs-6">
+            <input class="bookInput"
+                   style="margin: 2% 5%"
+                   type="date"
+            />
+          </div>
+          <div class="col-xs-6">
+            <input class="bookInput"
+                   style="margin: 2% 5%"
+                   type="date"
+            />
+          </div>
+        </div>  
       </div>
       
       <div class="text-right">
         <div class="addLogo">Add data</div>
-        <input class="input-file" type="file" @change="onFileChange">
+        <input class="input-file" @click="addinputs">
         <i class="material-icons fa-3x"
            style="margin: -50px 25px 0 0"
            >date_range</i>
@@ -86,8 +88,6 @@
               @click="$router.go(-1)"
               style="margin: 10% 0 0 10%"
               >voltar</button>
-  
-          
         </div>
         <div class="col text-right over">
           <button class="bookButton" 
@@ -126,7 +126,7 @@ export default {
         genero: ''
       },
       tiposEventos: ['Campeonato'],
-      inputslist: ''
+      inputslist: 1
     }
   },
   methods:{
@@ -256,11 +256,21 @@ export default {
         Loading.hide()
         console.log(e.response)
       })
+    },
+    addinputs(){
+      this.inputslist = this.inputslist + 1
+      console.log('inputslist:', this.inputslist);
     }
   }
 }
 </script>
 
 <style scoped>
-  
+  .input-file {
+	margin: -25px -50px -20px 0; 
+  }
+  .bookInput{
+    font-size: 18px;
+    padding: 8px 0 8px 5px ;
+  }
 </style>

@@ -6,10 +6,16 @@
     
     <q-item class="titleBook">
       <q-item-side>
-        <img src="~icones/2203-2126.png" style="margin-top:5px; height: 1em;">
+        <img src="~icones/2203-2120.png" style="margin-top:5px; height: 1em;">
       </q-item-side>
-      <q-item-main>cadastro</q-item-main>
+      <q-item-main>Cadastro de Pessoa</q-item-main>
     </q-item>
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0"
+         v-show="btnDelete">
+      <q-btn flat icon="delete" class="btnDelete" /><span>excluir</span> 
+    </div>
     
     <form>
       <select required
@@ -111,7 +117,8 @@ export default {
         email: '',
         genero: ''
       },
-      tiposRelacao: []
+      tiposRelacao: [],
+      btnDelete: false
     }
   },
   methods:{
@@ -246,8 +253,9 @@ export default {
   },
   mounted(){
     this.listarTipoRelacao()
-    if(localStorage.getItem('idPessoa') !== ''){
-      this.obterPessoa()  
+    if(localStorage.getItem('idPessoa') !== '0'){
+      this.obterPessoa()
+      this.btnDelete = true
     }
     
     
@@ -256,5 +264,13 @@ export default {
 </script>
 
 <style scoped>
-  
+  .btnDelete{
+    color: #F58634;
+    margin: 0 -15px 0 0;
+  }
+  span{
+    font-size: 19px;
+    margin-left: -15px;
+    color: #F58634;
+  }
 </style>
