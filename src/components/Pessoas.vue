@@ -20,7 +20,7 @@
       <q-item-side>
         <img src="~icones/2403-1956.png" width="30px" style="margin-top: 2px;">
       </q-item-side>
-      <q-item-main>pessoa</q-item-main>
+      <q-item-main>Pessoa</q-item-main>
       <q-item-side right>
         <img src="~icones/addmais32branco.png" 
              width="30px" 
@@ -34,10 +34,11 @@
             :key="index" 
             class="cinzaBook"
             >
+      <q-item-side></q-item-side>
       <q-item-main class="item" @click="getPessoa(pessoa)">
-        <div class="no-break-row">{{pessoa.nome}}</div> 
-        <hr class="no-margin" color="white" />
+        <div class="no-break-row">{{pessoa.nome}}</div>
       </q-item-main>
+      <hr class="no-margin" color="white" />
     </q-item>
 
     

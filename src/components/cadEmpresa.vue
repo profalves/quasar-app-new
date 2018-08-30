@@ -14,7 +14,7 @@
     <div class="cursor-pointer" 
          style="margin: -15px 0 0"
          v-show="btnDelete">
-      <q-btn flat icon="delete" class="btnDelete" /><span>excluir</span> 
+      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
     </div>
     
     <form>
@@ -63,7 +63,7 @@
       <div class="row">
         <div class="col text-left">
           <button class="backButton" 
-              @click="$router.go(-1)"
+              @click="$router.push('empresas')"
               style="margin: 10% 0 0 10%"
               >voltar</button>
   
@@ -226,8 +226,7 @@ export default {
     margin: 0 -15px 0 0;
   }
   span{
-    font-size: 19px;
-    margin-left: -15px;
+    font-size: 20px;
     color: #F58634;
   }
   

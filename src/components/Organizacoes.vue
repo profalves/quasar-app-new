@@ -27,8 +27,10 @@
   
   <q-list no-border multiline link>
     <q-item class="tile">
-      <q-item-side class="white">::</q-item-side>
-      <q-item-main>organizações filiado [4]</q-item-main>
+      <q-item-side class="white">
+        <img src="~icones/2203-2128.png" height="20px">
+      </q-item-side>
+      <q-item-main style="margin-left: 5px">Organização</q-item-main>
     </q-item>
     <q-item class="no-padding">
       <div class="box">

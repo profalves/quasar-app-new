@@ -81,7 +81,7 @@ export default {
   }
   .config{
     font-size: 27px;
-    color: #E6E7E8;
+    color: #ccc;
   }
 </style>
 

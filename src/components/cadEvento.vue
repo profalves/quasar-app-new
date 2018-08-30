@@ -60,13 +60,13 @@
       <div v-for="(inputs, index) in inputslist" :key="index">
         <div class="row">
           <div class="col-xs-6">
-            <input class="bookInput"
+            <input class="bookInput dataInput"
                    style="margin: 2% 5%"
                    type="date"
             />
           </div>
           <div class="col-xs-6">
-            <input class="bookInput"
+            <input class="bookInput dataInput"
                    style="margin: 2% 5%"
                    type="date"
             />
@@ -269,7 +269,7 @@ export default {
   .input-file {
 	margin: -25px -50px -20px 0; 
   }
-  .bookInput{
+  .dataInput{
     font-size: 18px;
     padding: 8px 0 8px 5px ;
   }

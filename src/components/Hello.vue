@@ -18,7 +18,7 @@
   <q-list no-border>
     <q-item class="verdeBook">
       <q-item-side>
-        <!--<img src="~icones/cadastro32.png" class="icon">-->
+        <img src="~icones/cadastro32.png" class="icon">
       </q-item-side>
       <q-item-main>Cadastro</q-item-main>
     </q-item>
@@ -224,6 +224,13 @@ export default {
     color: #fff;
   }
   .icon{
-    margin-left: 5px;
+    margin-left: 10px;
+    height: 20px;
+  }
+  .verdeBook {
+	padding: 8px 0;
+  }
+  .q-item-main.q-item-section{
+    margin: 0;
   }
 </style>

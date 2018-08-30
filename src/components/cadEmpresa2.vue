@@ -13,7 +13,8 @@
     
     <div class="cursor-pointer" 
          style="margin: -15px 0 0">
-      <q-btn flat icon="fa-pencil-square-o" 
+      <q-btn flat round 
+             icon="fa-pencil-square-o" 
              class="btnEdit" 
              @click="$router.push('cadEmpresa')"
              /><span>editar</span>
@@ -190,7 +191,7 @@
   </q-list>
   
     <button class="backButton" 
-            @click="$router.push('/hello')"
+            @click="$router.push('/empresas')"
             style="margin: 20px"
             >voltar</button>
   
@@ -341,9 +342,9 @@ export default {
     margin: 0 -10px 0 0;
   }
   span{
-    font-size: 19px;
-    margin-left: -15px;
+    font-size: 20px;
     color: #57A695;
+    cursor: pointer;
   }
   
 </style>

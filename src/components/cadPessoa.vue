@@ -76,7 +76,7 @@
       <div class="row">
         <div class="col text-left">
           <button class="backButton" 
-              @click="$router.go(-1)"
+              @click="$router.push('/pessoas')"
               style="margin: 10% 0 0 10%"
               >voltar</button>
   

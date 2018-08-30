@@ -20,7 +20,7 @@
       <q-item-side>
         <img src="~icones/2203-2128.png" width="40px" style="margin-top:5px">
       </q-item-side>
-      <q-item-main style="margin-top:6px">empresa</q-item-main>
+      <q-item-main style="margin-top:6px">Empresa</q-item-main>
       <q-item-side right>
           <img src="~icones/addmais32branco.png" 
                width="40px" 
@@ -34,10 +34,11 @@
             :key="index" 
             class="cinzaBook"
             >
+      <q-item-side></q-item-side>
       <q-item-main class="item" @click="getEmpresa(empresa)">
-        <div class="no-break-row"> {{empresa.nome}}</div> 
-        <hr class="no-margin" color="white" />
-      </q-item-main>  
+        <div class="no-break-row"> {{empresa.nome}}</div>
+      </q-item-main>
+      <hr class="no-margin" />
     </q-item>
     
     
@@ -45,7 +46,7 @@
   </q-list>
   
     <button class="backButton" 
-            @click="$router.go(-1)"
+            @click="$router.push('/hello')"
             style="margin: 20px"
             >voltar</button>
   
