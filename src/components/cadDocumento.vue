@@ -14,6 +14,11 @@
     <q-item class="titleBook" id="titleCad">
       <q-item-main>Cadastro Documento</q-item-main>
     </q-item>
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0">
+      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+    </div>
 
     <!--<q-item class="titleBook">
       <q-item-main>
@@ -590,11 +595,19 @@ export default {
     color: #BCBDC0;
     margin: 15px 90px 0 0
   }
-  .input-file {
+  .input-file{
     opacity: 0; /* invisible but it's there! */
     width: 100%;
     height: 200px;
     position: absolute;
     cursor: pointer;
+  }
+  .btnDelete{
+    color: #F58634;
+    margin: 0 -15px 0 0;
+  }
+  span{
+    font-size: 20px;
+    color: #F58634;
   }
 </style>

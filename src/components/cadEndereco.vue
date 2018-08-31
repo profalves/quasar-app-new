@@ -14,6 +14,12 @@
     <q-item class="titleBook" id="titleCad">
       <q-item-main>Cadastro Endereço</q-item-main>
     </q-item>
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0"
+         v-show="btnDelete">
+      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+    </div>
 
     <!--<q-item class="titleBook">
       <q-item-main>
@@ -158,7 +164,8 @@ export default {
         idEstacao: 1,
         idStatusReg: 1,
         idUsuario: 1,
-      }
+      },
+      btnDelete: false
       
     }
   },
@@ -221,6 +228,7 @@ export default {
           this.endFisicos = this.response.endFisicos
           this.endereco = this.endFisicos[index].endereco
           this.endFisico = this.endFisicos[index]
+          this.btnDelete = true
         }
         else{
           if(this.$route.query.mode === 'edit'){
@@ -307,5 +315,13 @@ export default {
   }
   #titleCad{
     padding-top: 15px;
+  }
+  .btnDelete{
+    color: #F58634;
+    margin: 0 -15px 0 0;
+  }
+  span{
+    font-size: 20px;
+    color: #F58634;
   }
 </style>

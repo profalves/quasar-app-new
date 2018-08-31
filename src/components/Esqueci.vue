@@ -16,13 +16,20 @@
     
     </q-list>
     
-    <input class="bookLogin" type="text" placeholder="usuário ..." style="margin: -10px 5% 10px" />
-    <input class="bookLogin" type="email" placeholder="email ..." />
+    <input class="bookLogin" 
+           type="text" 
+           placeholder="usuário ..." 
+           style="margin: -10px 5% 10px"
+           v-model="user" />
+    <input class="bookLogin" 
+           type="email" 
+           placeholder="email ..."
+           v-model="email" />
     
     <div class="row">
         <div class="col text-right over">
           <button class="bookButton" 
-              @click="$router.push('/novasenha')"
+              @click="recover"
               style="margin: 10px 18px 0 "
               >enviar</button>
         </div>
@@ -40,6 +47,10 @@
 
 <script>
 
+import API from 'data/config.js'
+import axios from 'axios'
+import { Loading, Toast } from 'quasar'
+
 export default {
   name: 'Esqueci',
   data(){
@@ -49,6 +60,34 @@ export default {
       year: new Date().getFullYear()
     }
   },
+  methods:{
+    recover(){
+      if(!this.user || !this.email){
+        Toast.create('Preencha o usuário e email por favor!')
+        return
+      }
+      
+      Loading.show()
+      axios.get(API + 'pessoas/recoverpass?email=' + this.email + '&numeroDoc=' + this.user)
+      .then((res) => {
+        Loading.hide()
+        console.info(res)
+        if(res.statusMsg === 'Error'){
+          Toast.create(res.message)
+        }
+        else{
+          this.$router.push('/novasenha')
+        }
+      })
+      .catch((e) => {
+        Loading.hide()
+        console.log(e.response)
+        let error = e.response
+        Toast.create(error.message)
+      })
+      
+    }
+  }
 }
 
 </script>

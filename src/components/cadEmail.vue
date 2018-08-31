@@ -14,6 +14,12 @@
     <q-item class="titleBook" id="titleCad">
       <q-item-main>Cadastro Email</q-item-main>
     </q-item>
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0"
+         v-show="btnDelete">
+      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+    </div>
 
     <!--<q-item class="titleBook">
       <q-item-main>
@@ -91,7 +97,8 @@ export default {
         idUsuario: 1,
         nome: '',
       },
-      metodo: ''
+      metodo: '',
+      btnDelete: false
     }
   },
   methods:{
@@ -140,6 +147,12 @@ export default {
         if(this.$route.query.mode === 'edit'){
           this.endVirtuais = this.response.endVirtuais
           this.email = this.response.endVirtuais[this.index]
+          this.btnDelete = true
+        }
+        else{
+          if(this.$route.query.mode === 'edit'){
+            Toast.create('Não há endereços para editar')
+          }
         }
       })
       .catch((e) => {
@@ -229,5 +242,13 @@ export default {
   }
   #titleCad{
     padding-top: 20px;
+  }
+  .btnDelete{
+    color: #F58634;
+    margin: 0 -15px 0 0;
+  }
+  span{
+    font-size: 20px;
+    color: #F58634;
   }
 </style>

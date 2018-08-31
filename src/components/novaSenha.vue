@@ -10,7 +10,7 @@
       <p>Usuário <strong>Igor_Rosa</strong></p>
     </div>
     
-    <input class="bookLogin" type="number" placeholder="Cód ..." />
+    <!--<input class="bookLogin" type="number" placeholder="Cód ..." />-->
     <input class="bookLogin" type="password" placeholder="Nova senha ..." />
     <input class="bookLogin" type="password" placeholder="Repetir senha ..." />
     

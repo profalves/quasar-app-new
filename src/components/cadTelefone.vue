@@ -14,7 +14,13 @@
     <q-item class="titleBook" id="titleCad">
       <q-item-main>Cadastro Telefone</q-item-main>
     </q-item>
-
+    
+    <div class="cursor-pointer" 
+         style="margin: -15px 0 0"
+         v-show="btnDelete">
+      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+    </div>
+    
     <!--<q-item class="titleBook">
       <q-item-main>
         <div class="name">{{pessoa.nome}}</div>
@@ -54,20 +60,20 @@
         </option>
       </select>
       
-      <q-item class="titleBook">
+      <!--<q-item class="titleBook">
         <q-item-side>
           <div class="bookCheckBox">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="checkbox" v-model="movel"/>
             <label for="checkbox"></label>
           </div>
         </q-item-side>
         <q-item-main style="font-size: 30px; margin: -10px 5px 10px">Whatsapp</q-item-main>
-      </q-item>
+      </q-item>-->
       
       <div class="row">
         <div class="col text-left">
           <button class="backButton" 
-              onclick="$router.go(-1)"
+              @click="$router.go(-1)"
               style="margin: 10% 0 0 10%"
               >voltar</button>
   
@@ -118,8 +124,10 @@ export default {
       },
       ddd: '',
       numero: '',
+      movel: false,
       telefones: [],
       tiposContato: [],
+      btnDelete: false
     }
   },
   methods:{
@@ -160,6 +168,12 @@ export default {
           this.telefone = this.response.telefones[index]
           this.ddd = this.telefone.numero.substring(0,2)
           this.numero = this.telefone.numero.substring(2)
+          this.btnDelete = true
+        }
+        else{
+          if(this.$route.query.mode === 'edit'){
+            Toast.create('Não há telefones para editar')
+          }
         }
       })
       .catch((e) => {
@@ -176,7 +190,7 @@ export default {
       
       if(!this.telefone.idTelefoneTipo){
         Toast.create({
-          html: 'Precisa preencher o tipo de endereço!',
+          html: 'Precisa preencher o tipo de contato!',
           icon: 'alert',
           timeout: 3500,
           color: '#57A695',
@@ -248,3 +262,13 @@ export default {
 }
 </script>
 
+<style scoped>
+  .btnDelete{
+    color: #F58634;
+    margin: 0 -15px 0 0;
+  }
+  span{
+    font-size: 20px;
+    color: #F58634;
+  }
+</style>

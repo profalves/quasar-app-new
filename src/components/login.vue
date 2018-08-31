@@ -44,6 +44,7 @@ import localforage from 'localforage'
 import API from 'data/config.js'
 import axios from 'axios'
 import { Loading, Toast } from 'quasar'
+
 export default {
   name: 'A1',
   data(){
