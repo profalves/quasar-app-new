@@ -18,6 +18,8 @@ $ quasar build
 
 # API
 
+## 1. GET:
+
 ### EndPoint
 
     http://191.252.64.6/testeskel/api/
@@ -45,3 +47,13 @@ $ quasar build
     tipos/telefone
     tipos/relacaoPessoa
     tipos/cidades
+
+### Login
+
+    pessoas/auth?login=_&senha=__
+  
+  o parâmetro login pode ser cpf ou email do usuário.
+  
+### Recuperação de Senha
+
+    pessoas/recoverpass?email=X&numeroDoc=X

@@ -14,7 +14,10 @@
     <div class="cursor-pointer" 
          style="margin: -15px 0 0"
          v-show="btnDelete">
-      <q-btn flat icon="delete" class="btnDelete" /><span>excluir</span> 
+      <q-btn flat round 
+             icon="delete" 
+             class="btnDelete"
+             @click="deletePessoa" /><span>excluir</span> 
     </div>
     
     <form>
@@ -246,7 +249,38 @@ export default {
       })
       .catch((e) => {
         Loading.hide()
-        console.log(e.response)
+        console.log('Erro', e.response)
+        Toast.create.negative(e.response.data.data.Message)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
+        })
+      })
+    },
+    deletePessoa(){
+      Loading.show()
+      axios.get(this.API + 'pessoas/delete?IdPessoa=' + localStorage.getItem('idPessoa') + 
+               '&IdUsuarioLogado=1') //+ localStorage.getItem())
+      .then((res) => {
+        Loading.hide()
+        console.log('sucesso', res)
+        if(res.data.data === true){
+          this.$router.push('pessoas')
+        }
+      })
+      .catch((e) => {
+        Loading.hide()
+        console.log('erro', e.response)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
+        })
       })
     }
     
@@ -269,8 +303,7 @@ export default {
     margin: 0 -15px 0 0;
   }
   span{
-    font-size: 19px;
-    margin-left: -15px;
+    font-size: 20px;
     color: #F58634;
   }
 </style>

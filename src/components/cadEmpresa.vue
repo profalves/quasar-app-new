@@ -14,7 +14,10 @@
     <div class="cursor-pointer" 
          style="margin: -15px 0 0"
          v-show="btnDelete">
-      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+      <q-btn flat round 
+             icon="delete" 
+             class="btnDelete"
+             @click="deleteEmpresa" /><span>excluir</span> 
     </div>
     
     <form>
@@ -130,6 +133,7 @@ export default {
       this.image = '';
     },
     saveEmpresa(){
+      debugger
       if(this.empresa.org === ''){
         Toast.create({
           html: 'Precisa preencher um nome para a empresa!',
@@ -176,6 +180,13 @@ export default {
       .catch((e) => {
         Loading.hide()
         console.log(e)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
+        })
       })
       
     },
@@ -207,8 +218,38 @@ export default {
       .catch((e) => {
         Loading.hide()
         console.log(e)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
+        })
       })
-    },  
+    },
+    deleteEmpresa(){
+      Loading.show()
+      axios.get(this.API + 'pessoas/delete?IdPessoa=' + localStorage.getItem('idPessoa') + 
+               '&IdUsuarioLogado=1') //+ localStorage.getItem())
+      .then((res) => {
+        Loading.hide()
+        console.log('sucesso', res)
+        if(res.data.data === true){
+          this.$router.push('empresas')
+        }
+      })
+      .catch((e) => {
+        Loading.hide()
+        console.log('erro', e.response)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
+        })
+      })
+    }
   },
   mounted(){
     if(localStorage.getItem('idPessoa') !== '0'){

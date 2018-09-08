@@ -45,7 +45,7 @@
   </q-list>
   
     <button class="backButton" 
-            @click="$router.go(-1)"
+            @click="$router.push('/hello')"
             style="margin: 20px"
             >voltar</button>
   

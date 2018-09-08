@@ -18,7 +18,10 @@
     <div class="cursor-pointer" 
          style="margin: -15px 0 0"
          v-show="btnDelete">
-      <q-btn flat round icon="delete" class="btnDelete" /><span>excluir</span> 
+      <q-btn flat round 
+             icon="delete" 
+             class="btnDelete" 
+             @click="excluir" /><span>excluir</span> 
     </div>
 
     <!--<q-item class="titleBook">
@@ -284,6 +287,34 @@ export default {
         Toast.create({
           html: erro,
           timeout: 5000,
+        })
+      })
+    },
+    excluir(){
+      Loading.show()
+      axios.get(this.API + 'pessoas/deleteEndFis?IdEndereco=' + this.endereco.idEndereco + 
+               '&IdUsuarioLogado=1') //+ localStorage.getItem())
+      .then((res) => {
+        Loading.hide()
+        console.log('sucesso', res)
+        if(res.data.data === true){
+          if(localStorage.getItem('setor') === 'empresa'){
+            this.$router.push('/subempresa')
+          }
+          else{
+            this.$router.push('/subpessoa')
+          }
+        }
+      })
+      .catch((e) => {
+        Loading.hide()
+        console.log('erro', e.response)
+        Toast.create({
+          html: e.response.data.data.Message,
+          icon: 'warning',
+          timeout: 4000,
+          color: 'white',
+          bgColor: 'red',
         })
       })
     }

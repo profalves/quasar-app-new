@@ -239,6 +239,7 @@ function convertData(value){
   }
   
   let data = new Date(y + '-' + m + '-' + d + 'T00:00:00').toISOString()
+  console.log('data', data);
   
   return data.split('.').shift()
 
@@ -585,6 +586,7 @@ export default {
       this.metodo = 'pessoas/insertPF'
     }
     localStorage.setItem('tela', 'Documentos')
+    this.select = this.$route.query.doc
   }
 }
 </script>

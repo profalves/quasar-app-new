@@ -55,6 +55,7 @@ export default new VueRouter({
       { path: '*', component: load('Error404') }, // Not found
                              
       // Ambiente de testes
-      { path: '/teste', component: load('Test') } // testes
+      { path: '/teste', component: load('Test') }, // testes
+      { path: '/sliding', component: load('optionSliding') } // testes
   ]
 })

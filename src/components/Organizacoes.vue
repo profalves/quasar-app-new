@@ -19,7 +19,7 @@
       <!--:: perfil [professor]-->
     </div>
     <div class="col text-right" id="user-name">
-      Igor Rosa<br>
+      Igor Rosa
       <!--<span class="subtitle">lorem ipsum</span>-->
     </div>
   </div>

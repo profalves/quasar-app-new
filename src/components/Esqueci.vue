@@ -73,7 +73,7 @@ export default {
         Loading.hide()
         console.info(res)
         if(res.statusMsg === 'Error'){
-          Toast.create(res.message)
+          Toast.create(res.data.data.message)
         }
         else{
           this.$router.push('/novasenha')
@@ -81,8 +81,8 @@ export default {
       })
       .catch((e) => {
         Loading.hide()
-        console.log(e.response)
-        let error = e.response
+        console.log('Erro', e.response)
+        let error = e.response.data
         Toast.create(error.message)
       })
       

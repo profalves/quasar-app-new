@@ -69,7 +69,6 @@ export default {
           console.log(err);
           Toast.create(err)
         });
-        
       })
       .catch((e) => {
         Loading.hide()
