@@ -1,5 +1,5 @@
 <template>
-  <swiper ref="mySwiper"
+  <swiper ref="carrosel"
           :options="swiperOption" 
           style="padding: 10px;"
           
@@ -79,7 +79,7 @@
     },
     computed: {
       swiper() {
-        return this.$refs.mySwiper.swiper
+        return this.$refs.carrosel.swiper
       }
     },
     mounted() {

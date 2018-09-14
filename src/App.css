@@ -300,3 +300,15 @@ footer {
   font-size: 25px;
   color: #6C6D70;
 }
+
+/*slider-button*/
+.btnSlider{
+  width: 50px;
+}
+
+.btnItem-slide{
+  background-color: red;
+  text-align: center;
+  color: #fff;
+}
+

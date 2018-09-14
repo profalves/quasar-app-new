@@ -91,7 +91,7 @@
 import cHeader from 'components/Header.vue'
 import API from 'data/config.js'
 import axios from 'axios'
-import { Loading, Toast } from 'quasar'
+import { Loading, Toast, Dialog } from 'quasar'
 export default {
   name: 'A5',
   components: { cHeader },
@@ -133,7 +133,6 @@ export default {
       this.image = '';
     },
     saveEmpresa(){
-      debugger
       if(this.empresa.org === ''){
         Toast.create({
           html: 'Precisa preencher um nome para a empresa!',
@@ -228,6 +227,28 @@ export default {
       })
     },
     deleteEmpresa(){
+      Dialog.create({
+        title: '<i class="material-icons text-red">warning</i> Atenção',
+        message: 'Tem certeza que deseja excluir ' + this.empresa.org + '?',
+        buttons: [
+          {
+            label: 'Cancelar',
+            color: 'faded',
+            handler: () => {
+              return
+            }
+          },
+          {
+            label: 'Excluir',
+            color: 'secondary',
+            handler: () => {
+              return
+            }
+          }
+        ]
+      })
+      
+      return
       Loading.show()
       axios.get(this.API + 'pessoas/delete?IdPessoa=' + localStorage.getItem('idPessoa') + 
                '&IdUsuarioLogado=1') //+ localStorage.getItem())

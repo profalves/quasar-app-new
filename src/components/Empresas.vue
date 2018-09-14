@@ -29,16 +29,24 @@
                >
       </q-item-side>
     </q-item>
-
+    
     <q-item v-for="(empresa, index) in empresas"
             :key="index" 
-            class="cinzaBook"
+            class="cinzaBook no-padding"
             >
       <q-item-side></q-item-side>
       <q-item-main class="item" @click="getEmpresa(empresa)">
         <div class="no-break-row"> {{empresa.nome}}</div>
       </q-item-main>
-      <hr class="no-margin" />
+      <q-item-side right>
+        <swiper class="btnSlider"
+                :options="{slidesPerView:1}">
+          <swiper-slide />
+          <swiper-slide class="btnItem-slide">
+            <i class="material-icons">delete</i>
+          </swiper-slide>
+        </swiper>
+      </q-item-side>
     </q-item>
     
     
@@ -68,7 +76,7 @@ export default {
     return {
       API,
       emp: [],
-      search: '',
+      search: ''
     }
   },
   computed:{

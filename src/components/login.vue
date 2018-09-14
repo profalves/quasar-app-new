@@ -59,10 +59,10 @@ export default {
       Loading.show()
       axios.get(API + 'pessoas/auth?login=' + this.user + '&senha=' + this.pass)
       .then((res) => {
-        Loading.hide()
         console.info(res)
         localforage.setItem('userRelacao', res.data.data)
         .then(() => {
+          Loading.hide()
           this.$router.push('/organizacoes');
         })
         .catch(function(err) {
